@@ -1,0 +1,27 @@
+<div class="container-fluid" ng-controller="MusicSelectionController">
+  <div class="row">
+    <div class="col-xs-3">
+      testing
+    </div>
+    <div class="col-xs-6">
+
+      <div style="height: 700px; width: 100%; overflow: auto">
+        <div style="height: 900px; width: 100%; color: #fff; background-color: rgba(0,0,0,0.9)">
+
+          <div class="media" ng-repeat="music in musics" tabindex="{{ ($index +1) }}">
+            <a class="media-left" href="#">
+              <img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=16&txt=64x64&w=128&h=128" alt="Generic placeholder image">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{ music.name }}</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xs-6">
+    </div>
+  </div>
+</div>

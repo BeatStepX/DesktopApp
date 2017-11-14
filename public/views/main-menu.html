@@ -1,0 +1,31 @@
+    <div class="chat-container" ng-controller="ChatController">
+      <ul class="message-list">
+        <li ng-repeat="message in messages"><span class="{{ message.type }}">[{{ message.name}}]</span> {{ message.text}}</li>
+      </ul>
+    </div>
+    <div>
+    <div class="v-h-center" style="width: 300px;">
+      <div >
+        <a href="#!/music-selection" tabindex="1"  role="button" class="btn menu btn-primary-outline btn-lg btn-block">Play</a>
+        <a href="#!/music-selection" tabindex="2" role="button" class="btn menu btn-primary-outline btn-lg btn-block">Options</a>
+        <a onclick="window.close()" tabindex="3" role="button" class="btn menu btn-danger-outline btn-lg btn-block" href="#">Exit</a>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4">
+          <h1>Hello World!</h1>
+          We are using node <span id="node-version">{{ process.versions.node}}</span><br>
+          Chromium <span id="chrome-version">{{ process.versions.chrome}}</span><br>
+          and Electron <span id="electron-version">{{ process.versions.electron}}</span>.
+          <br>
+          <button>Testing</button>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4">
+          One of three columns
+        </div>
+      </div>
+    </div>

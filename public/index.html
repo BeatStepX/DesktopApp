@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900" rel="stylesheet">
+    <base href="atom://">
+    
+    <!-- <link rel="stylesheet" href="atom://../bower_components/bootstrap/dist/css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="atom://../bower_components/tether/dist/css/tether.css"> -->
+    <link rel="stylesheet" href="atom://./css/app.css">
+    
+  </head>
+  <body ng-controller="MainController">
+    <div class="canvas-container">
+      <canvas id="background-canvas"></canvas>
+    </div>
+    <nav ng-controller="NavbarController" class="navbar navbar-fixed-top navbar-dark bg-inverse">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Fixed top</a>
+          <ul class="nav navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/music-selection">Music Selection</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/game">Game</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item pull-xs-right">
+              <button type="button" class="btn btn-danger-outline" onclick="window.close()" title="Exit" aria-label="Exit" >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <!--<a onclick="window.close()" class="nav-link" href="#">About</a>-->
+            </li>
+          </ul>
+      </div>
+    </nav>
+    <div ng-view></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      if (typeof module === "object") {
+        window.jQuery = window.$ = module.exports;
+      }
+    </script>
+    <!-- <script src="atom://../bower_components/angular/angular.js"></script>
+    <script src="atom://../bower_components/angular-route/angular-route.js"></script>
+    <script src="atom://../bower_components/tether/dist/js/tether.js"></script>
+    <script src="atom://../bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
+    
+    <script src="atom://js/app.js"></script>
+  </body>
+</html>
