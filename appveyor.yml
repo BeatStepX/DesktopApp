@@ -22,6 +22,5 @@ version: '{build}'
 shallow_clone: true
 clone_depth: 1
 test_script:
-  - tsc
-  - node-sass scss -o css
+  - gulp build
   - npm run publish
