@@ -31,15 +31,5 @@
     "png-to-ico": "^1.0.4",
     "typescript": "^2.6.1"
   },
-  "dependencies": {},
-  "build": {
-    "appId": "com.beatstepx.desktop",
-    "productName": "beatstepx",
-    "mac": {
-      "category": "com.beatstepx.desktop.category.type"
-    },
-    "directories": {
-      "app": "./build"
-    }
-  }
+  "dependencies": {}
 }
