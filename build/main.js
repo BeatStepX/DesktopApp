@@ -16,6 +16,7 @@ const browserOptions = {
         nodeIntegration: false,
     }
 };
+console.log("Test Console.log");
 const basePath = __dirname + '\\..\\public\\';
 class Main {
     constructor() {
@@ -37,13 +38,10 @@ class Main {
         }
     }
     createWindow() {
-        console.log("Debug console");
         electron_1.protocol.registerFileProtocol('atom', (request, callback) => {
-            // const url = request.url.substr(7).slice(0, -1);
             let url = request.url.substr(7);
             url = url === "" ? "index.html" : url;
             const newPath = path.normalize(basePath + url);
-            // const newPath = path.normalize(__dirname + basePath + url);
             callback({ path: newPath });
         }, (error) => {
             if (error) {
@@ -61,9 +59,7 @@ class Main {
             electron_1.dialog.showErrorBox('Global Shortcut', 'F11 registration failed.');
         }
         // and load the index.html of the app.
-        // this.mainWindow.loadURL('atom://' + basePath + 'index.html');
         this.mainWindow.loadURL('atom://');
-        // mainWindow.loadURL('http://html5test.com/');
         // Open the DevTools.
         // mainWindow.webContents.openDevTools();
         this.mainWindow.webContents.on('new-window', (event) => {

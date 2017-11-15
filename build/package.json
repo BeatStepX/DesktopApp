@@ -1,19 +1,24 @@
 {
-  "name": "beatstep-game-desktop",
+  "name": "desktopapp",
   "version": "0.1.0",
   "description": "BeatStepX Game",
   "main": "main.js",
   "scripts": {
     "start": "electron dist/main.js",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "pack": "build --dir",
+    "dist": "build",
+    "publish": "build --publish",
+    "icon": "png-to-ico icons/icon.png > build/icon.ico",
+    "icons": "icon-convert icons/icon.png --types icns,ico --out build"
   },
   "author": "Michel Alonso",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeatStepX/DesktopApp.git"
+  },
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "beatstep-game": "git+ssh://git@gitlab.com/beatstepx/beatstep-game.git",
-    "del": "^3.0.0",
     "electron": "1.7.9",
     "electron-builder": "^19.45.4",
     "gulp": "^3.9.1",
@@ -22,7 +27,19 @@
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-typescript": "^3.2.3",
+    "icon-convert": "^1.0.0",
+    "png-to-ico": "^1.0.4",
     "typescript": "^2.6.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "build": {
+    "appId": "com.beatstepx.desktop",
+    "productName": "beatstepx",
+    "mac": {
+      "category": "com.beatstepx.desktop.category.type"
+    },
+    "directories": {
+      "app": "./build"
+    }
+  }
 }

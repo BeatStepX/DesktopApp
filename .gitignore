@@ -3,3 +3,4 @@ Thumbs.db
 game/
 dist/
 public/assets/
+npm-debug.log
