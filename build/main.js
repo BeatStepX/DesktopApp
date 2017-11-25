@@ -1,28 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const path = require("path");
 const electron_1 = require("electron");
+const path = require("path");
+const test_1 = require("./test");
+// const path = require('path');
 const browserOptions = {
-    width: 800,
-    height: 600,
+    width: 1360,
+    height: 768,
     title: 'BeatStepX',
     fullscreen: true,
     autoHideMenuBar: true,
-    icon: 'build/icon.ico',
-    show: false,
+    icon: 'icon_128.png',
     // frame: false,
-    webPreferences: {}
+    webPreferences: {
+        nodeIntegration: false,
+    }
 };
 console.log("Test Console.log");
-electron_1.app.commandLine.appendSwitch('use-gl', 'desktop');
 const basePath = __dirname + '\\..\\public\\';
 class Main {
     constructor() {
-        const shouldQuit = electron_1.app.makeSingleInstance(this.onNewWindow.bind(this));
-        if (shouldQuit) {
-            electron_1.app.quit();
-            return;
-        }
+        this.test = new test_1.Test();
         electron_1.app.on('ready', this.createWindow.bind(this));
         // Quit when all windows are closed.
         electron_1.app.on('window-all-closed', () => {
@@ -34,25 +32,12 @@ class Main {
         });
         electron_1.app.on('activate', this.onActive.bind(this));
     }
-    onNewWindow(commandLine, workingDirectory) {
-        console.log(commandLine, workingDirectory);
-        // Someone tried to run a second instance, we should focus our window.
-        if (this.mainWindow) {
-            if (this.mainWindow.isMinimized())
-                this.mainWindow.restore();
-            this.mainWindow.focus();
-        }
-    }
     onActive() {
         if (this.mainWindow === null) {
             this.createWindow();
         }
     }
     createWindow() {
-        const size = electron_1.screen.getPrimaryDisplay().workAreaSize;
-        console.log(size, size.width, size.height);
-        browserOptions.width = size.width;
-        browserOptions.height = size.height;
         electron_1.protocol.registerFileProtocol('atom', (request, callback) => {
             let url = request.url.substr(7);
             url = url === "" ? "index.html" : url;
@@ -80,13 +65,8 @@ class Main {
         this.mainWindow.webContents.on('new-window', (event) => {
             event.preventDefault();
         });
-        this.mainWindow.webContents.on('did-finish-load', this.onFinishLoad.bind(this));
         // Emitted when the window is closed.
         this.mainWindow.on('closed', this.onClose.bind(this));
-    }
-    onFinishLoad() {
-        this.mainWindow.show();
-        this.mainWindow.focus();
     }
     onClose() {
         // Dereference the window object, usually you would store windows
