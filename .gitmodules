@@ -1,0 +1,3 @@
+[submodule "renderer"]
+	path = renderer
+	url = git@gitlab.com:beatstepx/DesktopAppRenderer.git
