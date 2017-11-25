@@ -1,6 +1,7 @@
-node_modules
 Thumbs.db
+npm-debug.log
+
+node_modules
 game/
 dist/
 public/assets/
-npm-debug.log
